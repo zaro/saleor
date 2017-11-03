@@ -21,7 +21,6 @@ from ..core.utils import build_absolute_uri
 from ..discount.models import Voucher
 from ..product.models import Product
 from ..userprofile.models import Address
-from ..search import index
 from . import OrderStatus
 from . import emails
 
@@ -45,7 +44,7 @@ class OrderManager(models.Manager):
 
 
 @python_2_unicode_compatible
-class Order(models.Model, ItemSet, index.Indexed):
+class Order(models.Model, ItemSet):
     status = models.CharField(
         pgettext_lazy('Order field', 'order status'),
         max_length=32, choices=OrderStatus.CHOICES, default=OrderStatus.NEW)
@@ -93,12 +92,6 @@ class Order(models.Model, ItemSet, index.Indexed):
         max_length=255, default='', blank=True)
 
     objects = OrderManager()
-
-    search_fields = [
-        index.SearchField('id'),
-        index.SearchField('get_user_current_email'),
-        index.SearchField('_index_billing_phone'),
-        index.SearchField('_index_shipping_phone')]
 
     class Meta:
         ordering = ('-last_status_change',)
