@@ -24,7 +24,7 @@
 
 {% block content %}
   <div class="card">
-    {% if perms.voucher.edit_voucher %}
+    {% if perms.discount.edit_voucher %}
       <div class="data-table-header-action">
         <a href="{% url 'dashboard:voucher-add' %}" class="btn btn-data-table btn-flat" title="{% trans "Add voucher" context "Voucher list add button text" %}">
           {% trans "Add" context "Dashboard add action" %}
@@ -61,7 +61,7 @@
           </thead>
           {% for voucher in vouchers %}
             <tbody>
-              <tr data-action-go="{% if perms.voucher.edit_voucher %}{% url 'dashboard:voucher-update' pk=voucher.pk %}{% endif %}">
+              <tr data-action-go="{% if perms.discount.edit_voucher %}{% url 'dashboard:voucher-update' pk=voucher.pk %}{% endif %}">
                 <td>
                   {{ voucher }}
                 </td>
