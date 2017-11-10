@@ -24,7 +24,7 @@
   <div class="row">
     <div class="col s12">
       <div class="card">
-          {% if perms.shipping.edit_shipping %}
+        {% if perms.shipping.edit_shipping %}
         <div class="data-table-header-action">
           <a href="{% url 'dashboard:shipping-method-add' %}" class="btn btn-data-table btn-flat" title="{% trans "Add method" context "Shipping method list add button text" %}">
             {% trans "Add" context "Dashboard add action" %}
