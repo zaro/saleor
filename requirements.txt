@@ -20,7 +20,6 @@ cffi==1.10.0              # via cairocffi, cryptography, weasyprint
 chardet==3.0.4            # via requests
 cryptography==2.0.3       # via django-payments
 cssselect2==0.2.1         # via weasyprint
-defusedxml==0.5.0         # via python3-openid, social-auth-core
 dj-database-url==0.4.2
 dj-email-url==0.0.10
 django-bootstrap3==9.0.0
